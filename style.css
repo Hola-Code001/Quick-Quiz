@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap");
+
+/* style reset */
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+:root {
+  /* spot */
+
+  --Spot-500-blue: hsl(219 99.1% 54.7%);
+  --Spot-500-purple: hsl(249 54.4% 57.8%);
+  --Spot-500-green: hsl(126 64.8% 41.2%);
+  --Spot-500-red: hsl(0.27 100% 57.1%);
+  --Spot-500-yellow: hsl(34.4 85% 55.7%);
+  --Spot-500-pink: hsl(331 99% 58.8%);
+  --Spot-500-Orange: hsl(14.4 100% 50%);
+
+  /* text */
+
+  --Heading-01: hsl(0, 0%, 0%);
+  --Heading-02: hsl(0 0% 7%);
+  --Heading-03: hsl(0 0% 7%);
+  --Heading-04: hsl(0 0% 12.2%);
+  --Heading-05: hsl(0 0% 17.6%);
+  --Heading-06: hsl(0 0% 23.5%);
+  --Title: hsl(0 0% 7%);
+  --Sub-heading: hsl(0 0% 17.6%);
+  --Body: hsl(0 0% 35.3%);
+  --Caption-01: hsl(0 0% 46.7%);
+  --Caption-02: hsl(0 0% 58.4%);
+  --Mute: hsl(0 0% 58.4%);
+  --Disabled: hsl(0 0% 83.5%);
+  --On-Color: hsl(0 0% 100%);
+  --On-Color-Inverse: hsl(0 0% 0%);
+  --Text-White: hsl(0 0% 100%);
+  --Text-Black: hsl(0 0% 0%);
+
+  /* button */
+
+  --Btn-Primary: hsl(0 0% 0%);
+  --Btn-Primary-Active: hsl(0 0% 12.2%);
+  --Btn-Primary-Disabled: hsl(0 0% 83.5%);
+  --Btn-Secondary: hsl(0 0% 91.8%);
+  --Btn-Danger: hsl(0.27 100% 57.1%);
+  --Btn-Primary-Text: hsl(0 0% 100%);
+  --Btn-Secondary-Text: v hsl(0 0% 0%);
+  --Btn-Danger-Text: hsl(0 0% 100%);
+  --Btn-Disabled-Text: hsl(0 0% 58.4%);
+
+  /* highlight */
+
+  --Highlight-Green-50: hsl(128 47.1% 93.3%);
+  --Highlight-Green-150: hsl(126 46.2% 81.8%);
+  --Highlight-Green-500: hsl(126 64.8% 41.2%);
+  --Highlight-Green-950: hsl(125 61.9% 4.12%);
+  --Highlight-Red-50: hsl(0 100% 95.7%);
+  --Highlight-Red-150: hsl(0.91 100% 87.1%);
+  --Highlight-Red-500: hsl(0.27 100% 57.1%);
+  --Highlight-Red-950: hsl(0 73.3% 5.88%);
+  --Highlight-Pink-50: hsl(331 100% 95.9%);
+  --Highlight-Pink-150: hsl(331 100% 87.6%);
+  --Highlight-Pink-500: hsl(331 99% 58.8%);
+  --Highlight-Pink-950: hsl(332 70.6% 6.67%);
+  --Highlight-Purple-50: hsl(250 54.5% 95.7%);
+  --Highlight-Purple-150: hsl(249 53.8% 87.3%);
+  --Highlight-Purple-500: hsl(249 54.4% 57.8%);
+  --Highlight-Purple-950: hsl(250 40% 5.88%);
+  --Highlight-Yellow-50: hsl(33.8 86.7% 91.2%);
+  --Highlight-Yellow-150: hsl(34.1 85.3% 86.7%);
+  --Highlight-Yellow-500: hsl(34.4 85% 55.7%);
+  --Highlight-Yellow-950: hsl(34.7 65.5% 5.69%);
+  --Highlight-Blue-50: hsl(219 100% 91%);
+  --Highlight-Blue-150: hsl(219 100% 86.5%);
+  --Highlight-Blue-500: hsl(219 99.1% 54.7%);
+  --Highlight-Blue-950: hsl(219 81% 16.5%);
+  --Highlight-Orange-50: hsl(14.1 100% 90%);
+  --Highlight-Orange-150: hsl(14.2 100% 85.1%);
+  --Highlight-Orange-500: hsl(14.4 100% 50%);
+  --Highlight-Orange-950: hsl(13.8 100% 5.1%);
+
+  /* background */
+
+  --Surface-Primary: hsl(0 0% 97.6%);
+  --Surface-Secondary: hsl(0 0% 91.8%);
+  --Foreground-Primary: hsl(0 0% 87.5%);
+  --Foreground-Secondary: hsl(0 0% 83.5%);
+  --Surface-Modal: hsl(0 0% 97.6%);
+  --Overlay: hsl(0 0% 20% / 0.7);
+  --Icon-On-Color: hsl(0 0% 100%);
+  --Icon-On-Color-Inverse: hsl(0 0% 0%);
+  --Icon-White: hsl(0 0% 100%);
+  --Icon-Black: hsl(0 0% 0%);
+  --Icon-Nav-Active: hsl(0 0% 7%);
+  --Icon-Nav-Inactive: hsl(0 0% 58.4%);
+  --Icon-System: hsl(0 0% 17.6%);
+  --Icon-Subtle: hsl(0 0% 35.3%);
+  --Icon-Mute: hsl(0 0% 66.7%);
+  --Icon-Disabled: hsl(0 0% 74.9%);
+  --Handle: hsl(0 0% 66.7%);
+
+  /* stroke */
+
+  --Soft: hsl(0 0% 87.5%);
+  --Mild: hsl(0 0% 83.5%);
+  --Subtle: hsl(0 0% 74.9%);
+  --Strong: hsl(0 0% 58.4%);
+  --inverse: hsl(0, 0%, 0%);
+
+  /* shadow */
+
+  --Blue-Dark: hsl(219 81% 16.5%);
+  --Red-Dark: hsl(0 75% 17.3%);
+  --Green-Dark: hsl(126 65.1% 12.4%);
+  --Orange-Dark: hsl(14 100% 15.1%);
+  --Purple-Dark: hsl(249 39.3% 17.5%);
+  --Yellow-Dark: hsl(34.7 67.1% 16.7%);
+  --Pink-Dark: hsl(331 69.9% 18.2%);
+
+  /* border radius */
+
+  --Radius-XSM: 0.25rem;
+  --Radius-SM: 0.375rem;
+  --Radius-MD: 0.5rem;
+  --Radius-L: 0.75rem;
+  --Radius-XL: 1rem;
+  --Radius-2XL: 1.5rem;
+  --Radius-3XL: 2rem;
+  --Radius-MAX: 4rem;
+
+  /* spacing */
+
+  --Spacing-0: 0rem;
+  --Spacing-2: 0.125rem;
+  --Spacing-4: 0.25rem;
+  --Spacing-6: 0.375rem;
+  --Spacing-8: 0.5rem;
+  --Spacing-10: 0.625rem;
+  --Spacing-12: 0.75rem;
+  --Spacing-14: 0.875rem;
+  --Spacing-16: 1rem;
+  --Spacing-20: 1.25rem;
+  --Spacing-24: 1.5rem;
+  --Spacing-28: 1.75rem;
+  --Spacing-32: 2rem;
+  --Spacing-36: 2.25rem;
+  --Spacing-40: 2.5rem;
+  --Spacing-44: 2.75rem;
+  --Spacing-48: 3rem;
+  --Spacing-52: 3.25rem;
+  --Spacing-56: 3.5rem;
+  --Spacing-64: 4rem;
+  --Spacing-80: 5rem;
+  --Spacing-100: 6.25rem;
+  --Spacing-120: 7.5rem;
+
+  /* fonts */
+  --font-family: "DM Mono", monospace;
+
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-md: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 2rem; /* 32px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  --font-size-5xl: 3rem; /* 48px */
+}
+
+[drak-theme="dark"] {
+  /* spot */
+  --Spot-500-blue: hsl(219 99.1% 54.7%);
+  --Spot-500-purple: hsl(249 54.4% 57.8%);
+  --Spot-500-green: hsl(126 64.8% 41.2%);
+  --Spot-500-red: hsl(0.27 100% 57.1%);
+  --Spot-500-yellow: hsl(34.4 85% 55.7%);
+  --Spot-500-pink: hsl(331 99% 58.8%);
+  --Spot-500-Orange: hsl(14.4 100% 50%);
+
+  /* text */
+  --Heading-01: hsl(0 0% 100%);
+  --Heading-02: hsl(0 0% 95.7%);
+  --Heading-03: hsl(0 0% 95.7%);
+  --Heading-04: hsl(0 0% 91.8%);
+  --Heading-05: hsl(0 0% 91.8%);
+  --Heading-06: hsl(0 0% 87.5%);
+  --Title: hsl(0 0% 95.7%);
+  --Sub-heading: hsl(0 0% 91.8%);
+  --Body: hsl(0 0% 58.4%);
+  --Caption-01: hsl(0 0% 46.7%);
+  --Caption-02: vhsl(0 0% 35.3%);
+  --Mute: hsl(0 0% 35.3%);
+  --Disabled: hsl(0 0% 17.6%);
+  --On-Color: hsl(0 0% 0%);
+  --On-Color-Inverse: hsl(0 0% 100%);
+  --Text-White: hsl(0 0% 100%);
+  --Text-Black: hsl(0 0% 0%);
+  --Btn-Primary: hsl(0 0% 100%);
+
+  /* button */
+  --Btn-Primary-Active: hsl(0 0% 87.5%);
+  --Btn-Primary-Disabled: hsl(0 0% 23.5%);
+  --Btn-Secondary: hsl(0 0% 12.2%);
+  --Btn-Danger: hsl(0.27 100% 57.1%);
+  --Btn-Primary-Text: hsl(0 0% 0%);
+  --Btn-Secondary-Text: hsl(0 0% 100%);
+  --Btn-Danger-Text: hsl(0 0% 100%);
+  --Btn-Disabled-Text: hsl(0 0% 35.3%);
+
+  /* highlight */
+  --Highlight-Green-50: hsl(126 66.7% 8.24%);
+  --Highlight-Green-150: hsl(126 64.3% 16.5%);
+  --Highlight-Green-500: hsl(126 45.2% 52.7%);
+  --Highlight-Green-950: hsl(126 46.2% 81.8%);
+  --Highlight-Red-50: hsl(0 75.9% 11.4%);
+  --Highlight-Red-150: hsl(0.68 75.9% 22.7%);
+  --Highlight-Red-500: hsl(0.34 100% 65.7%);
+  --Highlight-Red-950: hsl(0 100% 95.7%);
+  --Highlight-Pink-50: hsl(332 70.6% 6.67%);
+  --Highlight-Pink-150: hsl(331 70.5% 23.9%);
+  --Highlight-Pink-500: hsl(331 98.8% 67.1%);
+  --Highlight-Pink-950: hsl(331 100% 87.6%);
+  --Highlight-Purple-50: hsl(248 39% 11.6%);
+  --Highlight-Purple-150: hsl(248 39% 23.1%);
+  --Highlight-Purple-500: hsl(249 54.4% 57.8%);
+  --Highlight-Purple-950: hsl(249 53.8% 87.3%);
+  --Highlight-Yellow-50: hsl(33.8 68.4% 11.2%);
+  --Highlight-Yellow-150: hsl(34.3 68.1% 22.2%);
+  --Highlight-Yellow-500: hsl(34.5 84.5% 64.5%);
+  --Highlight-Yellow-950: hsl(34.1 85.3% 86.7%);
+  --Highlight-Blue-50: hsl(219 82.1% 11%);
+  --Highlight-Blue-150: hsl(219 82.1% 22%);
+  --Highlight-Blue-500: hsl(219 99.1% 54.7%);
+  --Highlight-Blue-950: hsl(219 100% 86.5%);
+  --Highlight-Orange-50: hsl(14.1 100% 10%);
+  --Highlight-Orange-150: hsl(14.1 100% 20%);
+  --Highlight-Orange-500: hsl(14.4 100% 50%);
+  --Highlight-Orange-950: hsl(14.2 100% 85.1%);
+
+  /* background */
+
+  --Surface-Primary: hsl(0 0% 5%);
+  --Surface-Secondary: hsl(0 0% 12.2%);
+  --Foreground-Primary: hsl(0 0% 17.6%);
+  --Foreground-Secondary: hsl(0 0% 23.5%);
+  --Surface-Modal: hsl(0 0% 7%);
+  --Overlay: hsla(0, 0%, 20%, 0.698);
+
+  /* icon */
+
+  --Icon-On-Color: hsl(0 0% 0%);
+  --Icon-On-Color-Inverse: hsl(0 0% 100%);
+  --Icon-White: hsl(0 0% 100%);
+  --Icon-Black: hsl(0 0% 0%);
+  --Icon-Nav-Active: hsl(0 0% 95.7%);
+  --Icon-Nav-Inactive: hsl(0 0% 58.4%);
+  --Icon-System: hsl(0 0% 87.5%);
+  --Icon-Subtle: hsl(0 0% 35.3%);
+  --Icon-Mute: hsl(0 0% 35.3%);
+  --Icon-Disabled: hsl(0 0% 23.5%);
+  --Handle: hsl(0 0% 23.5%);
+
+  /* Stroke */
+  --Stroke-Soft: hsl(0 0% 17.6%);
+  --Stroke-Mild: hsl(0 0% 23.5%);
+  --Stroke-Subtle: hsl(0 0% 35.3%);
+  --Stroke-Strong: hsl(0 0% 46.7%);
+  --Stroke-inverse: hsl(0 0% 100%);
+
+  /* shadow */
+
+  --Blue-Dark: hsl(219 82.1% 22%);
+  --Red-Dark: hsl(0.68 75.9% 22.7%);
+  --Green-Dark: hsl(126 64.3% 16.5%);
+  --Orange-Dark: hsl(14.1 100% 20%);
+  --Purple-Dark: hsl(248 39% 23.1%);
+  --Yellow-Dark: hsl(34.3 68.1% 22.2%);
+  --Pink-Dark: hsl(331 70.5% 23.9%);
+}
+
+/* general styling */
+
+body {
+  background-color: var(--Surface-Primary);
+  font-family: var(--font-family);
+}
