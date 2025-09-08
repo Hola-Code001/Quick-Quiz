@@ -608,13 +608,61 @@ h1 {
   color: var(--Body);
 }
 
-.empty-board {
+.score-list-container {
   margin: var(--Spacing-32) auto 0;
   background-color: var(--Surface-Secondary);
-  padding: var(--Spacing-32) var(--Spacing-16) var(--Spacing-48);
+  padding: var(--Spacing-32) var(--Spacing-32);
   width: 100%;
   max-width: 800px;
   border-radius: var(--Radius-L);
+}
+
+.score-list {
+  list-style: none;
+}
+
+.score-list li {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  color: var(--Body);
+  margin-bottom: var(--Spacing-24);
+}
+
+.score-list li:last-child {
+  margin-bottom: var(--Spacing-0);
+}
+
+.score-list li p:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--Spacing-12);
+}
+
+.score-list li p span {
+  color: var(--Title);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-lg);
+}
+
+.score-list li p i {
+  font-size: var(--font-size-xl);
+}
+
+.score-list li:first-child i {
+  color: var(--Spot-500-yellow);
+}
+
+.score-list li:nth-child(2) i {
+  color: var(--Spot-500-purple);
+}
+
+.score-list li:last-child i {
+  color: var(--Spot-500-pink);
+}
+
+.empty-board {
+  margin-bottom: var(--Spacing-12);
 }
 
 .empty-board svg {
@@ -672,20 +720,37 @@ h1 {
   align-items: center;
   flex-direction: column;
   gap: var(--Spacing-12);
+  width: 300px;
 }
 
 .progress-bar {
   width: 100%;
-  max-width: 200px;
+  max-width: 300px;
   height: 8px;
   background-color: var(--Highlight-Blue-150);
   border-radius: var(--Radius-MAX);
   overflow: hidden;
 }
 
+.progress-bar.medium {
+  background-color: var(--Highlight-Yellow-150);
+}
+
+.progress-bar.medium > div {
+  background-color: var(--Highlight-Yellow-500);
+}
+
+.progress-bar.low {
+  background-color: var(--Highlight-Red-150);
+}
+
+.progress-bar.low > div {
+  background-color: var(--Highlight-Red-500);
+}
+
 .progress-fill {
   height: 100%;
-  width: 70%;
+  width: 100%;
   background-color: var(--Spot-500-blue);
   border-radius: var(--Radius-MAX);
   transition: width 1s linear;
@@ -722,6 +787,28 @@ h1 {
   text-align: center;
 }
 
+.answer-btn.wrong {
+  background-color: var(--Btn-Danger);
+  color: var(--Btn-Danger-Text);
+  box-shadow: 2px 6px 0px 0px var(--Red-Dark);
+}
+
+.answer-btn.correct {
+  background-color: var(--Spot-500-green);
+  color: var(--Btn-Primary-Text);
+  box-shadow: 2px 6px 0px 0px var(--Green-Dark);
+}
+
+.answer-btn.shake {
+  animation: shake 70ms ease infinite alternate;
+}
+
+.next-quiz:disabled {
+  color: var(--Btn-Disabled-Text);
+  background-color: var(--Btn-Primary-Disabled);
+  box-shadow: none;
+}
+
 .quiz-navigation {
   display: flex;
   justify-content: space-between;
@@ -755,12 +842,75 @@ dialog {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  transition: all 400ms ease;
+}
+
+dialog[open].show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 dialog::backdrop {
   background: var(--Overlay);
   backdrop-filter: blur(4px);
+}
+
+dialog.how-to-play-modal {
+  max-width: 550px;
+}
+
+.how-to-play-modal h4 {
+  font-size: var(--font-size-2xl);
+  color: var(--Heading-01);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.how-to-play-modal ul {
+  list-style: none;
+}
+
+.how-to-play-modal ul li {
+  display: flex;
+  align-items: center;
+  gap: var(--Spacing-16);
+  margin-bottom: var(--Spacing-24);
+}
+
+.how-to-play-modal ul li p {
+  color: var(--Body);
+}
+
+.how-to-play-modal ul li i {
+  font-size: var(--font-size-xl);
+}
+
+.how-to-play-modal ul li p > span {
+  color: var(--Title);
+  font-weight: var(--font-weight-medium);
+}
+
+.how-to-play-modal li i.fa-trophy {
+  color: var(--Spot-500-yellow);
+}
+
+.how-to-play-modal li i.fa-check {
+  color: var(--Spot-500-blue);
+}
+
+.how-to-play-modal li i.fa-arrow-right {
+  color: var(--Spot-500-green);
+}
+
+.how-to-play-modal li i.fa-clock {
+  color: var(--Spot-500-purple);
+}
+
+.how-to-play-modal > div > div {
+  display: flex;
+  justify-content: end;
 }
 
 .quit-modal h4 {
@@ -900,5 +1050,15 @@ dialog::backdrop {
 
   to {
     transform: translateY(16px);
+  }
+}
+
+@keyframes shake {
+  from {
+    transform: translateX(6px);
+  }
+
+  to {
+    transform: translateX(-6px);
   }
 }
