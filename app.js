@@ -66,7 +66,7 @@ function loadLeaderBoard() {
       const scoreElement = document.createElement("p");
       const { tag, position } = leaderboardTag[index];
 
-      positionElemnet.innerHTML = `<i class="fa-solid fa-medal"></i><span>${position}</span> ${tag}`;
+      positionElemnet.innerHTML = `<i class="fa-solid fa-medal"></i>${position}<span>${tag}</span> `;
       scoreElement.innerHTML = `<span>${item}</span> / 10`;
 
       scoreListContainer.appendChild(scoreListItem);

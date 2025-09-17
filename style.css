@@ -153,6 +153,7 @@ h6 {
   --Foreground-Secondary: hsl(0 0% 83.5%);
   --Surface-Modal: hsl(0 0% 97.6%);
   --Overlay: hsl(0 0% 20% / 0.7);
+  --Nav-Bar: hsla(0 0% 97.6%, 0.5);
 
   /* icon */
 
@@ -319,6 +320,7 @@ h6 {
   --Foreground-Secondary: hsl(0 0% 23.5%);
   --Surface-Modal: hsl(0 0% 7%);
   --Overlay: hsla(0, 0%, 20%, 0.698);
+  --Nav-Bar: hsla(0 0% 5%, 0.5);
 
   /* icon */
 
@@ -417,7 +419,8 @@ main,
 
 header {
   padding: var(--Spacing-24) var(--Spacing-16);
-  /* background-color: var(--Surface-Primary); */
+  background-color: var(--Nav-Bar);
+  backdrop-filter: blur(5px);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -517,6 +520,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   gap: var(--Spacing-20);
   margin-top: var(--Spacing-32);
   margin-bottom: var(--Spacing-16);
@@ -564,6 +568,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--Spacing-24);
 }
 
@@ -837,7 +842,7 @@ dialog {
   background-color: var(--Surface-Modal);
   border-radius: var(--Radius-3XL);
   padding: var(--Spacing-24);
-  width: 100%;
+  width: calc(100% - 32px);
   max-width: 400px;
   position: fixed;
   top: 50%;
@@ -1013,6 +1018,7 @@ dialog.how-to-play-modal {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--Spacing-24);
   margin: var(--Spacing-40) 0 var(--Spacing-24);
 }
@@ -1060,5 +1066,40 @@ dialog.how-to-play-modal {
 
   to {
     transform: translateX(-6px);
+  }
+}
+
+@media screen and (max-width: 620px) {
+  main {
+    margin-top: var(--Spacing-24);
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .info-container span {
+    display: none;
+  }
+
+  .leaderboard {
+    margin-top: var(--Spacing-120);
+  }
+
+  .score-list li p:first-child span {
+    display: none;
+  }
+
+  .quiz-info {
+    flex-direction: column;
+    gap: var(--Spacing-24);
+  }
+
+  .question-and-answer h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  dialog {
+    padding: var(--Spacing-16);
   }
 }
