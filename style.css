@@ -1074,6 +1074,10 @@ dialog.how-to-play-modal {
     margin-top: var(--Spacing-24);
   }
 
+  header {
+    padding: var(--Spacing-16);
+  }
+
   h1 {
     font-size: 40px;
   }
