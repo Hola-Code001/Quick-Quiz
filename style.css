@@ -616,7 +616,7 @@ h1 {
 .score-list-container {
   margin: var(--Spacing-32) auto 0;
   background-color: var(--Surface-Secondary);
-  padding: var(--Spacing-32) var(--Spacing-32);
+  padding: var(--Spacing-24) var(--Spacing-24);
   width: 100%;
   max-width: 800px;
   border-radius: var(--Radius-L);
@@ -1084,6 +1084,10 @@ dialog.how-to-play-modal {
 
   .leaderboard {
     margin-top: var(--Spacing-120);
+  }
+
+  .score-list-container {
+    padding: var(--Spacing-16) var(--Spacing-16);
   }
 
   .score-list li p:first-child span {
