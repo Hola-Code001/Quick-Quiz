@@ -859,7 +859,7 @@ dialog[open].show {
 
 dialog::backdrop {
   background: var(--Overlay);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(7px);
 }
 
 dialog.how-to-play-modal {

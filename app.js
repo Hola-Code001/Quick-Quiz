@@ -54,6 +54,8 @@ let currentQuestionIndex = 0;
 let score = 0;
 let timer;
 let timeRemain = 15;
+let autoNextInterval;
+let autoNextCount = 7;
 
 function loadLeaderBoard() {
   const scoreListContainer = document.querySelector(".score-list");
@@ -142,7 +144,7 @@ function startTimer() {
     if (timeRemain <= 1) {
       clearInterval(timer);
       shake(q.correctAnswer);
-      nextQuizBtn.disabled = false;
+      AutoNext();
     }
 
     timeRemain--;
@@ -175,12 +177,35 @@ function checkAnswer(btn, selected, correctAnswer) {
     btn.classList.add("correct");
     score++;
     scoreDisplay.textContent = score;
+    nextQuizBtn.disabled = false;
+    nextQuizBtn.textContent = `Next ${autoNextCount}s`;
   } else {
     btn.classList.add("wrong");
     shake(correctAnswer);
   }
 
-  nextQuizBtn.disabled = false;
+  AutoNext();
+}
+
+function AutoNext() {
+  autoNextCount--;
+  autoNextInterval = setInterval(() => {
+    nextQuizBtn.disabled = false;
+    nextQuizBtn.textContent = `Next ${autoNextCount}s`;
+    autoNextCount--;
+    if (autoNextCount === 0) {
+      nextQuizBtn.textContent = "Next";
+      nextQuizBtn.click();
+      clearInterval(autoNextInterval);
+      autoNextCount = 7;
+    }
+  }, 1000);
+}
+
+function clearAutoNext() {
+  nextQuizBtn.textContent = "Next";
+  clearInterval(autoNextInterval);
+  autoNextCount = 7;
 }
 
 function resetQuestion() {
@@ -235,7 +260,7 @@ nextQuizBtn.addEventListener("click", () => {
   // relaunchConfetti = setInterval(() => {
   //   launchConfetti();
   // }, 5000);
-
+  clearAutoNext();
   currentQuestionIndex++;
   if (currentQuestionIndex < randomQuestion.length) {
     loadQuestion();
